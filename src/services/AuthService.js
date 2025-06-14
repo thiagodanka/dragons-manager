@@ -1,3 +1,5 @@
+import perfilImage from '../assets/images/perfil.jpg';
+
 function setCookie(name, value, days) {
     const expires = new Date(Date.now() + days * 864e5).toUTCString();
     document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/`;
@@ -25,6 +27,8 @@ const AuthService = {
                 const fakeJwt = btoa(
                     JSON.stringify({
                         user: username,
+                        userName: "Stoico",
+                        image: perfilImage,
                         exp: Date.now() + 3600 * 1000, // expira em 1h
                     })
                 );

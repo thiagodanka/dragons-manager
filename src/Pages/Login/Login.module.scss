@@ -134,25 +134,6 @@ form {
     }
 }
 
-.loginButton {
-    margin-top: 0.5rem;
-    padding: 0.8rem 0;
-    background: linear-gradient(90deg, #4f8cff 0%, #3358e6 100%);
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 2px 8px rgba(79, 140, 255, 0.15);
-    transition: box-shadow 0.2s, color 0.2s;
-
-    &:hover {
-        box-shadow: 0 4px 16px rgba(51, 88, 230, 0.25);
-        color: #e6f0ff;
-    }
-}
-
 @media (max-width: 900px) {
     .loginWrapper {
         flex-direction: column;
@@ -191,5 +172,22 @@ form {
         padding: 2rem 1.5rem;
         margin: 2rem;
         border-radius: 8px;
+    }
+}
+
+.githubReference {
+    position: absolute;
+    bottom: 0;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem;
+
+    a {
+        color: #3358e6;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.9rem;
     }
 }
