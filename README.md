@@ -1,6 +1,18 @@
-## ✨ Visão Geral
+# 🐉 Dragons Manager
 
-O **Dragons Manager** é uma aplicação web para gerenciamento de dragões fictícios via API. Permite autenticação local, cadastro, edição, remoção e visualização detalhada de dragões.
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)
+![SCSS](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)
+
+Uma aplicação React para gerenciamento de dragões via API externa, com sistema de autenticação local e CRUD completo.
+
+---
+
+## 🖼️ Demonstração
+
+| Login  
+|-------
+| <img src="./src/assets/images/screenshot-login.png" width="300">
 
 ---
 
@@ -29,50 +41,49 @@ O **Dragons Manager** é uma aplicação web para gerenciamento de dragões fict
 
 ```plaintext
 src/
+    ├── App.jsx
+    ├── main.jsx
+    │
     ├── assets/
     │     └── images/
-    │           └── logo.svg
-    │           └── ... (outros assets)
+    │             ├── dragon-login.png
+    │             ├── dragon-login.webp
+    │             └── dragon-login2.png
     │
     ├── components/
     │     ├── Button/
-    │     │     ├── Button.jsx
-    │     │     └── Button.module.scss
-    │     ├── Header/
-    │     │     ├── Header.jsx
-    │     │     └── Header.module.scss
-    │     └── DragonCard/
-    │           ├── DragonCard.jsx
-    │           └── DragonCard.module.scss
+    │     ├── DragonCard/
+    │     └── Header/
+    │
+    ├── contexts/
     │
     ├── pages/
-    │     ├── Login/
-    │     │     ├── Login.jsx
-    │     │     └── Login.module.scss
+    │     ├── CreateDragon/
+    │     ├── DragonDetails/
     │     ├── DragonList/
     │     │     ├── DragonList.jsx
     │     │     └── DragonList.module.scss
-    │     ├── DragonDetails/
-    │     │     ├── DragonDetails.jsx
-    │     │     └── DragonDetails.module.scss
-    │     └── CreateDragon/
-    │           ├── CreateDragon.jsx
-    │           └── CreateDragon.module.scss
-    │
-    ├── services/
-    │     └── api.js
-    │
-    ├── styles/
-    │     ├── _variables.scss
-    │     ├── _mixins.scss
-    │     └── global.scss
+    │     └── Login/
+    │           ├── Login.jsx
+    │           └── Login.module.scss
     │
     ├── routes/
-    │     └── AppRoutes.jsx
+    │     ├── AppRoutes.jsx
+    │     ├── PrivateRoute.jsx
+    │     └── PublicRoute.jsx
     │
-    ├── App.jsx
-    ├── main.jsx
-    └── vite.config.js
+    ├── services/
+    │     ├── Api.js
+    │     ├── AuthService.js
+    │     └── DragonService.js
+    │
+    ├── styles/
+    │     ├── _mixins.scss
+    │     ├── _variables.scss
+    │     └── global.scss
+    │
+    └── utils/
+          └── cookieUtils.js
 ```
 ---
 
@@ -93,12 +104,29 @@ src/
 
 ## 🔒 Autenticação
 
-A autenticação é feita localmente utilizando `localStorage`, pois a API não possui endpoints de autenticação.
+O sistema usa um token `JWT` simulado armazenado em cookies seguros:
 
-- Usuário padrão criado localmente no login
-- Após login, um token fictício é salvo no `localStorage`
-- Rotas protegidas por verificação desse token
+- Credenciais pré-definidas no .env
+- Token com expiração de 1 hora
+- Proteção de rotas via contexto React
+- Dados do usuário codificados no token
 
+---
+
+## ⚙️ Pré-requisitos
+- Node.js (versão 16 ou superior)
+- npm ou yarn
+- Git
+
+---
+
+## 🔧 Configuração
+Crie um arquivo `.env` na raiz do projeto com:
+```plaintext
+VITE_API_URL=http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragon
+VITE_USER=userExemple
+VITE_PASSWORD=passExemple
+```
 ---
 
 ## ⚡ Instalação e Uso
