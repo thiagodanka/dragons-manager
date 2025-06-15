@@ -1,11 +1,11 @@
 import api from './Api';
 
 const DragonService = {
-    getAll: () => api.get('/dragons'),
-    getById: (id) => api.get(`/dragons/${id}`),
-    create: (data) => api.post('/dragons', data),
-    update: (id, data) => api.put(`/dragons/${id}`, data),
-    delete: (id) => api.delete(`/dragons/${id}`)
+    getAll: () => api.get('/dragon'),
+    getById: (id) => api.get(`/dragon/${id}`),
+    create: (data) => api.post('/dragon', data),
+    update: (id, data) => api.put(`/dragon/${id}`, data),
+    delete: (id) => api.delete(`/dragon/${id}`)
 };
 
 export default DragonService;

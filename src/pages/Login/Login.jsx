@@ -6,6 +6,8 @@ import styles from "./Login.module.scss";
 import Dragon1 from '@assets/images/dragon-login.webp';
 import Dragon from '@assets/images/dragon-login.png';
 import Button from "@components/Button/Button";
+import SwitchButton from "@components/SwitchButton/SwitchButton";
+import Input from "@components/Input/Input";
 
 const Login = () => {
     const { login } = useContext(AuthContext);
@@ -34,7 +36,7 @@ const Login = () => {
     };
 
     return (
-        <div className={styles.loginWrapper}>
+        <div className={styles.container}>
             {/* Lado Esquerdo */}
             <div className={styles.leftSide}>
                 <div className={styles.imageContainer}>
@@ -53,26 +55,24 @@ const Login = () => {
                     <form onSubmit={handleSubmit}>
                         <div className={styles.inputGroup}>
                             <label htmlFor="username">Usuário</label>
-                            <input
-                                type="text"
-                                id="username"
-                                name="username"
-                                autoComplete="username"
+                            <Input
+                                identifier="username"
                                 value={username}
-                                onChange={e => setUsername(e.target.value)}
+                                autoComplete="username"
                                 disabled={loading}
+                                onChange={e => setUsername(e.target.value)}
+                                type="text"
                             />
                         </div>
                         <div className={styles.inputGroup}>
                             <label htmlFor="password">Senha</label>
-                            <input
-                                type="password"
-                                id="password"
-                                name="password"
-                                autoComplete="current-password"
+                            <Input
+                                identifier="password"
                                 value={password}
-                                onChange={e => setPassword(e.target.value)}
+                                autoComplete="current-password"
                                 disabled={loading}
+                                onChange={e => setPassword(e.target.value)}
+                                type="password"
                             />
                         </div>
                         {error && <p className={styles.errorMessage}>{error}</p>}
@@ -83,6 +83,7 @@ const Login = () => {
                             text={"Entrar"}
                             loading={loading}
                             loadingText="Entrando..."
+                            fontSize="lg"
                         />
                     </form>
                 </div>

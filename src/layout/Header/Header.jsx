@@ -3,6 +3,7 @@ import Dropdown from "@components/Dropdown/Dropdown";
 import styles from "./Header.module.scss";
 import AuthService from "@services/AuthService";
 import { AuthContext } from "@contexts/AuthContext";
+import SwitchButton from "@components/SwitchButton/SwitchButton";
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);

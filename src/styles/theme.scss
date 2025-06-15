@@ -1,0 +1,13 @@
+@use './variables-light' as light;
+@use './variables-dark' as dark;
+
+
+body.light-theme {
+    background-color: light.$background-color;
+    color: light.$text-color;
+}
+
+body.dark-theme {
+    background-color: dark.$background-color;
+    color: dark.$text-color;
+}

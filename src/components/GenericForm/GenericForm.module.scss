@@ -1,0 +1,89 @@
+.formContainer {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #424242;
+    border-radius: 1rem;
+    color: #fafafa;
+
+    h2 {
+        margin-bottom: 1.5rem;
+        text-align: center;
+        color: #fafafa;
+    }
+}
+
+.dragonForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+
+    label {
+        margin-bottom: 0.4rem;
+        color: #ffffff;
+        font-weight: 500;
+        font-size: 0.98rem;
+    }
+
+    input {
+        padding: 0.7rem 1rem;
+        border: 1px solid #dbeafe;
+        border-radius: 6px;
+        font-size: 1rem;
+        transition: border 0.2s;
+        background-color: #e6e6e6;
+
+        &:focus {
+            border-color: #4f8cff;
+            outline: none;
+        }
+        &:disabled {
+            background-color: #bdbdbd;
+            cursor: not-allowed;
+        }
+    }
+}
+
+.formActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+
+    button {
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        border: none;
+        cursor: pointer;
+        font-weight: 500;
+        transition: background-color 0.2s;
+
+        &:first-child {
+            background-color: #757575;
+            color: white;
+
+            &:hover:not(:disabled) {
+                background-color: #616161;
+            }
+        }
+
+        &:last-child {
+            background-color: #4caf50;
+            color: white;
+
+            &:hover:not(:disabled) {
+                background-color: #388e3c;
+            }
+        }
+
+        &:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+    }
+}

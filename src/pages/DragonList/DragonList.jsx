@@ -1,16 +1,37 @@
-import AuthService from "@services/AuthService";
-import styles from "./DragonList.module.scss";
+import List from "@components/List/List";
 import AppLayout from "@layout/AppLayout/AppLayout";
+import DragonService from "@services/DragonService";
+import { useEffect, useState } from "react";
 
 const DragonList = () => {
-    const token = AuthService.getToken();
-    const tokenData = JSON.parse(atob(token));
 
+    const [dragons, setDragons] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchDragons = async () => {
+            try {
+                const response = await DragonService.getAll();
+                const sorted = response.data.sort((a, b) => a.name.localeCompare(b.name));
+                setDragons(sorted);
+            } catch (error) {
+                console.error("Erro ao buscar dragões:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchDragons();
+    }, []);
     return (
         <AppLayout>
-            <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+            {
+                loading ?
+                    <div>Carregando...</div>
+                    :
+                    <List dragons={dragons} />
 
-            </div>
+            }
         </AppLayout>
 
     )

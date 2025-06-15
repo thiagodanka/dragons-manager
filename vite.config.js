@@ -4,6 +4,16 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `
+          @use "@styles/variables-light" as light;
+          @use "@styles/variables-dark" as dark;
+        `,
+      },
+    },
+  },
   resolve: {
     alias: {
       '@components': path.resolve(__dirname, 'src/components'),
@@ -16,5 +26,5 @@ export default defineConfig({
       '@utils': path.resolve(__dirname, 'src/utils'),
       '@layout': path.resolve(__dirname, 'src/layout'),
     },
-  },
+  }
 })
