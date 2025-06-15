@@ -46,12 +46,10 @@ src/
     │
     ├── assets/
     │     └── images/
-    │             ├── dragon-login.png
-    │             ├── dragon-login.webp
-    │             └── dragon-login2.png
-    │
+    │           
     ├── components/
     │     ├── Button/
+    |     |    └──
     │     ├── DragonCard/
     │     └── Header/
     │

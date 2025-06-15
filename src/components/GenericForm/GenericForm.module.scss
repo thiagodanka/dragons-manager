@@ -18,29 +18,17 @@
     }
 }
 
-.create {
-    max-height: 410px;
+
+textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 8px;
+    font-size: 14px;
+    line-height: 1.4;
+    text-align: left;
+    resize: vertical;
+    box-sizing: border-box;
 }
-
-.edit {
-    max-height: 510px;
-}
-
-@media (max-width: 768px) {
-    .formContainer {
-        min-width: 100%;
-    }
-
-    .create {
-        max-height: 340px;
-    }
-
-    .edit {
-        max-height: 440px;
-    }
-
-}
-
 
 .dragonForm {
     display: flex;
@@ -58,7 +46,43 @@
         font-weight: 500;
         font-size: 0.98rem;
     }
+
+    .selectInput {
+        width: 100%;
+        padding: 0.7rem 1rem;
+        // border: 1px solid var(--card-border);
+        color: var(--text-color-primary);
+        border-radius: 6px;
+        background-color: var(--bg-content);
+        font-size: 1rem;
+        transition: border 0.2s;
+        box-shadow: rgba(51, 88, 230, 0.15) 0px 8px 24px;
+
+        &:focus {
+            border: 1px solid #4f8cff;
+            outline: none;
+        }
+    }
+
+    .textarea {
+        width: 100%;
+        padding: 0.7rem 1rem;
+        // border: 1px solid var(--card-border);
+        color: var(--text-color-primary);
+        border-radius: 6px;
+        background-color: var(--bg-content);
+        font-size: 1rem;
+        transition: border 0.2s;
+        box-shadow: rgba(51, 88, 230, 0.15) 0px 8px 24px;
+
+        &:focus {
+            border: 1px solid #4f8cff;
+            outline: none;
+        }
+    }
+
 }
+
 
 .formActions {
     display: flex;
@@ -96,5 +120,11 @@
             opacity: 0.7;
             cursor: not-allowed;
         }
+    }
+}
+
+@media (max-width: 768px) {
+    .formContainer {
+        min-width: 100%;
     }
 }

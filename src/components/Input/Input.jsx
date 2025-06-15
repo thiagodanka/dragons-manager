@@ -3,9 +3,9 @@ import styles from "./Input.module.scss";
 const Input = ({
     value,
     disabled = false,
-    type = "",
+    type = "text",
     identifier,
-    autoComplete = "",
+    autoComplete = "off",
     ...rest
 }) => {
 

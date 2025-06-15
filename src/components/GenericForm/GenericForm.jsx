@@ -33,6 +33,7 @@ export const GenericForm = ({ mode = 'create' }) => {
             setFormData({
                 name: '',
                 type: '',
+                history: '',
                 createdAt: currentDate(),
             });
         }
@@ -86,24 +87,42 @@ export const GenericForm = ({ mode = 'create' }) => {
                     <label htmlFor="name">Nome:</label>
                     <Input
                         identifier="name"
-                        value={formData.name}
+                        value={formData.name || ''}
                         autoComplete="off"
                         disabled={loading}
                         required
                         onChange={handleChange}
                         type="text"
+                        maxLength={30}
+                        placeholder="Ex: Drogon, Rhaegal, Viserion, etc."
                     />
                 </div>
                 <div className={styles.formGroup}>
                     <label htmlFor="type">Tipo:</label>
                     <Input
                         identifier="type"
-                        value={formData.type}
+                        value={formData.type || ''}
                         autoComplete="off"
                         disabled={loading}
                         required
                         onChange={handleChange}
                         type="text"
+                        maxLength={30}
+                        placeholder="Ex: Fogo, Gelo, Terra, etc."
+
+                    />
+                </div>
+                <div className={styles.formGroup}>
+                    <label htmlFor="history">História:</label>
+                    <textarea
+                        className={styles.textarea}
+                        name="histories"
+                        id="histories"
+                        value={formData.histories || ''}
+                        disabled={loading}
+                        onChange={handleChange}
+                        maxLength={500}
+                        placeholder="Conte a história do dragão..."
                     />
                 </div>
 
@@ -119,6 +138,7 @@ export const GenericForm = ({ mode = 'create' }) => {
                         />
                     </div>
                 )}
+
 
                 <div className={styles.formActions}>
                     <Button

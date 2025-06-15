@@ -1,12 +1,9 @@
 import Header from "@layout/Header/Header";
 import styles from "./AppLayout.module.scss";
 import { useEffect } from "react";
-import Button from "@components/Button/Button";
-import { FaPlus } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
 
 const AppLayout = ({ children, pageTitle, action }) => {
-    
+
     useEffect(() => {
         if (pageTitle) {
             document.title = `${pageTitle} | Dragons Manager`;
