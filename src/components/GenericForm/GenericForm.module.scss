@@ -1,17 +1,46 @@
 .formContainer {
-    max-width: 600px;
-    margin: 2rem auto;
+    min-width: 530px;
     padding: 2rem;
-    background-color: #424242;
+    // background-color: var(--card-bg);
     border-radius: 1rem;
-    color: #fafafa;
+    color: var(--text-color-primary);
+    // box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     h2 {
         margin-bottom: 1.5rem;
         text-align: center;
-        color: #fafafa;
+        color: var(--text-color-primary);
+        ;
     }
 }
+
+.create {
+    max-height: 410px;
+}
+
+.edit {
+    max-height: 510px;
+}
+
+@media (max-width: 768px) {
+    .formContainer {
+        min-width: 100%;
+    }
+
+    .create {
+        max-height: 340px;
+    }
+
+    .edit {
+        max-height: 440px;
+    }
+
+}
+
 
 .dragonForm {
     display: flex;
@@ -25,27 +54,9 @@
 
     label {
         margin-bottom: 0.4rem;
-        color: #ffffff;
+        color: var(--text-color-secondary);
         font-weight: 500;
         font-size: 0.98rem;
-    }
-
-    input {
-        padding: 0.7rem 1rem;
-        border: 1px solid #dbeafe;
-        border-radius: 6px;
-        font-size: 1rem;
-        transition: border 0.2s;
-        background-color: #e6e6e6;
-
-        &:focus {
-            border-color: #4f8cff;
-            outline: none;
-        }
-        &:disabled {
-            background-color: #bdbdbd;
-            cursor: not-allowed;
-        }
     }
 }
 

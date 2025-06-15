@@ -37,6 +37,9 @@ const Login = () => {
 
     return (
         <div className={styles.container}>
+            <div className={styles.switchContainer}>
+                <SwitchButton />
+            </div>
             {/* Lado Esquerdo */}
             <div className={styles.leftSide}>
                 <div className={styles.imageContainer}>

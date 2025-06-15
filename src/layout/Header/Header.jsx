@@ -19,12 +19,11 @@ const Header = () => {
 
     const menu = (
         <>
-            <div className={styles.userInfo}>
-                <img
-                    src={tokenData.image}
-                    alt={`Avatar de ${tokenData.userName}`}
-                    className={styles.avatarLarge}
-                />
+            <div className={styles.userInfo}>                <img
+                src={tokenData.image}
+                alt={`Avatar de ${tokenData.userName}`}
+                className={styles.avatarLarge}
+            />
                 <div className={styles.userDetails}>
                     <p className={styles.userName}>{tokenData.userName}</p>
                     <p className={styles.userEmail}>{tokenData.email}</p>
@@ -47,22 +46,25 @@ const Header = () => {
     return (
         <header className={styles.header}>
             <h1 className={styles.logo}>Dragons Manager</h1>
-            <Dropdown
-                isOpen={isOpen}
-                menu={menu}
-            >
-                <button
-                    className={styles.avatarButton}
-                    onClick={handleOpen}
-                    aria-label="Menu do usuário"
+            <div className={styles.actions}>
+                <SwitchButton />
+                <Dropdown
+                    isOpen={isOpen}
+                    menu={menu}
                 >
-                    <img
-                        src={tokenData.image}
-                        alt={`Avatar de ${tokenData.userName}`}
-                        className={styles.avatarImage}
-                    />
-                </button>
-            </Dropdown>
+                    <button
+                        className={styles.avatarButton}
+                        onClick={handleOpen}
+                        aria-label="Menu do usuário"
+                    >
+                        <img
+                            src={tokenData.image}
+                            alt={`Avatar de ${tokenData.userName}`}
+                            className={styles.avatarImage}
+                        />
+                    </button>
+                </Dropdown>
+            </div>
         </header>
     );
 }

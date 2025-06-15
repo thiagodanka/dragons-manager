@@ -1,3 +1,43 @@
-.button {
-    background-color: red;
+.switchContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #b6b6b6;
+    border-radius: 20px;
+    padding: 0.4rem;
+    width: 60px;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s;
+
+    svg {
+        color: #fff;
+        transition: color 0.3s;
+    }
+}
+
+.switchButton {
+    background-color: #fff;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: left 0.3s, background-color 0.3s;
+
+    svg {
+        color: #333;
+    }
+}
+
+.active {
+    left: 34px;
+
+    svg {
+        color: #333;
+    }
 }

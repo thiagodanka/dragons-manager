@@ -5,9 +5,8 @@ import { FaPenToSquare, FaRegTrashCan } from "react-icons/fa6";
 import Egg from '@assets/images/egg.png';
 import { formatDate } from '@utils/formatDate';
 import { useNavigate } from 'react-router-dom';
-import DragonService from '@services/DragonService';
 
-const List = ({ dragons }) => {
+const List = ({ dragons, onDelete }) => {
 
     const navigate = useNavigate();
 
@@ -16,17 +15,6 @@ const List = ({ dragons }) => {
     const handleEdit = (dragonId) => {
         navigate(`/dragons/${dragonId}`);
     };
-
-    const handleDelete = (dragonId) => {
-        DragonService.delete(dragonId)
-            .then(() => {
-                console.log(`Dragão com ID ${dragonId} excluído com sucesso.`);
-            })
-            .catch((error) => {
-                console.error(`Erro ao excluir dragão com ID ${dragonId}:`, error);
-            });
-    };
-
 
     const getImageSource = (imageUrl) => {
         // Se não houver imageUrl ou for string vazia, retorna a imagem padrão
@@ -55,7 +43,7 @@ const List = ({ dragons }) => {
                         src={getImageSource(dragon.imageUrl)}
                         alt={`Imagem de ${dragon.name}`}
                         onError={(e) => {
-                            e.target.src = Egg; // Fallback se a imagem falhar ao carregar
+                            e.target.src = Egg;
                         }}
                     />
                     <div>
@@ -84,7 +72,7 @@ const List = ({ dragons }) => {
                             disabled={loading}
                             text="Excluir"
                             fontSize='sm'
-                            onClick={() => handleDelete(dragon.id)}
+                            onClick={() => onDelete(dragon)}
                             variant='secondary'
                             icon={<FaRegTrashCan />}
                         />

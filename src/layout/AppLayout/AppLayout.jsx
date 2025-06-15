@@ -5,14 +5,8 @@ import Button from "@components/Button/Button";
 import { FaPlus } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
-const AppLayout = ({ children, pageTitle }) => {
-
-    const navigate = useNavigate();
-
-    const handleCreateDragon = () => {
-        navigate('/dragons/create');
-    }
-
+const AppLayout = ({ children, pageTitle, action }) => {
+    
     useEffect(() => {
         if (pageTitle) {
             document.title = `${pageTitle} | Dragons Manager`;
@@ -24,13 +18,7 @@ const AppLayout = ({ children, pageTitle }) => {
             <Header />
             <main className={styles.main}>
                 <div className={styles.actions}>
-                    <Button
-                        icon={<FaPlus />}
-                        text="Criar Dragão"
-                        variant="primary"
-                        fontSize="sm"
-                        onClick={handleCreateDragon}
-                    />
+                    {action}
                 </div>
                 <div className={styles.content}>
                     {children}

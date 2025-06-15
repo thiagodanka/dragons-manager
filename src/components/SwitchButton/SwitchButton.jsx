@@ -1,18 +1,23 @@
 import React from "react";
+import { useContext } from "react";
+import { ThemeContext } from "@contexts/themeContext";
+import { FaSun, FaMoon } from "react-icons/fa";
 import styles from "./SwitchButton.module.scss";
 
 const SwitchButton = () => {
-
-    const toggleTheme = () => {
-        // document.body.classList.toggle("dark-theme");
-        document.body.classList.toggle("light-theme");
-    };
+    const { toggleTheme, theme } = useContext(ThemeContext);
 
     return (
-        <button className={styles.button} onClick={toggleTheme}>
-            {/* {theme === "light" ? "🌞" : "🌙"} */}
-            Mudar tema
-        </button>
+        <div className={styles.switchContainer} onClick={toggleTheme}>
+            <FaSun size={16} />
+            <div
+                className={`${styles.switchButton} ${theme === "dark" ? styles.active : ""
+                    }`}
+            >
+                {theme === "light" ? <FaSun size={14} /> : <FaMoon size={14} />}
+            </div>
+            <FaMoon size={16} />
+        </div>
     );
 };
 

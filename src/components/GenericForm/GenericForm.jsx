@@ -6,10 +6,14 @@ import Button from '@components/Button/Button';
 import Input from '@components/Input/Input';
 import { currentDate, formatDate } from '@utils/formatDate';
 import dragons from '@utils/dragons.json';
+import { useToast } from '@contexts/ToastContext';
 
 export const GenericForm = ({ mode = 'create' }) => {
+
+    const { addToast } = useToast();
     const { id } = useParams();
     const navigate = useNavigate();
+
     const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
@@ -26,7 +30,6 @@ export const GenericForm = ({ mode = 'create' }) => {
                 })
                 .finally(() => setLoading(false));
         } else if (mode === 'create') {
-            // Limpa o formulário para criar novo
             setFormData({
                 name: '',
                 type: '',
@@ -55,12 +58,19 @@ export const GenericForm = ({ mode = 'create' }) => {
             let dataToSend = { ...formData };
             if (mode === 'create') {
                 dataToSend.imageUrl = getRandomDragonImage();
-                await DragonService.create(dataToSend); 
+                await DragonService.create(dataToSend);
+                addToast("success", `Dragão ${dataToSend.name} criado com sucesso.`);
             } else {
                 await DragonService.update(id, formData);
+                addToast("success", `Dragão ${formData.name} alterado com sucesso.`);
             }
             navigate('/dragons');
         } catch (error) {
+            if (mode === 'create') {
+                addToast("error", `Erro ao criar dragão ${formData.name}.`);
+            } else {
+                addToast("error", `Erro ao editar dragão ${formData.name}.`);
+            }
             console.error('Error:', error);
         } finally {
             setLoading(false);
@@ -68,7 +78,7 @@ export const GenericForm = ({ mode = 'create' }) => {
     };
 
     return (
-        <div className={styles.formContainer}>
+        <div className={`${styles.formContainer} ${styles[mode]}`}>
             <h2>{mode === 'create' ? 'Cadastrar Novo Dragão' : 'Editar Dragão'}</h2>
 
             <form onSubmit={handleSubmit} className={styles.dragonForm}>
@@ -117,7 +127,7 @@ export const GenericForm = ({ mode = 'create' }) => {
                         onClick={() => navigate('/dragons')}
                         text={"Cancelar"}
                         variant="neutral"
-                        fontSize="md"
+                        fontSize="sm"
                     />
 
                     <Button
@@ -126,7 +136,7 @@ export const GenericForm = ({ mode = 'create' }) => {
                         text={mode == "create" ? "Cadastrar" : "Salvar"}
                         loading={loading}
                         loadingText="Salvando..."
-                        fontSize="md"
+                        fontSize="sm"
                     />
 
                 </div>

@@ -41,7 +41,7 @@
 
 // Variantes de cor
 .primary {
-    background: linear-gradient(90deg, #4f8cff 0%, #3358e6 100%);
+    background: var(--button-primary);
     box-shadow: 0 2px 8px rgba(79, 140, 255, 0.15);
 
     &:hover {
@@ -52,7 +52,7 @@
 }
 
 .secondary {
-    background: linear-gradient(90deg, #e64833 0%, #f11a1a 100%);
+    background: var(--button-secondary);
     box-shadow: 0 2px 8px rgba(230, 93, 51, 0.103);
 
     &:hover {
@@ -63,7 +63,7 @@
 }
 
 .neutral {
-    background: linear-gradient(90deg, #757575 0%, #555555 100%);
+    background: var(--button-neutral);
     box-shadow: 0 2px 8px rgba(155, 155, 155, 0.096);
 
     &:hover {

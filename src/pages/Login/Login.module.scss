@@ -1,13 +1,18 @@
 .container {
     display: flex;
     min-height: 100vh;
-    background: #f5f7fa;
+    background: var(--body-bg);
+
+    .switchContainer {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        z-index: 1000;
+    }
 }
 
 .leftSide {
     flex: 1;
-    // background: linear-gradient(135deg, #4f8cff 0%, #3358e6 100%);
-    background: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -21,7 +26,7 @@
 
 .imageContainer {
     max-width: 500px;
-    background: linear-gradient(135deg, #4f8cff 0%, #3358e6 100%);
+    background: var(--button-primary);
     width: 100%;
     padding: 2rem;
     margin: 1rem;
@@ -34,7 +39,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    color: #f0f4ff; // cor base para textos pequenos
+    color: var(--text-color-secondary);
 
     text-align: center;
 
@@ -68,7 +73,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #fff;
 }
 
 .formContainer {
@@ -121,16 +125,9 @@ form {
 
     input {
         padding: 0.7rem 1rem;
-        border: 1px solid #dbeafe;
         border-radius: 6px;
         font-size: 1rem;
         transition: border 0.2s;
-        background-color: #fafafa;
-
-        &:focus {
-            border-color: #4f8cff;
-            outline: none;
-        }
     }
 }
 
@@ -148,7 +145,6 @@ form {
         min-height: 300px;
         position: relative;
         overflow: hidden;
-        background: #fff;
 
         &::before {
             content: "";
@@ -159,6 +155,7 @@ form {
             max-height: 200px;
             height: 30vh;
             background: url('@assets/images/dragon-login.png') no-repeat center center;
+            filter: drop-shadow(0 0 5px #2c2c2c);
             background-size: contain;
         }
     }
@@ -168,10 +165,10 @@ form {
         max-width: 420px;
         box-shadow: none;
         border-radius: 0;
-        background: rgba(255, 255, 255, 0.85); // leve sobreposição para leitura
         padding: 2rem 1.5rem;
         margin: 2rem;
         border-radius: 8px;
+        box-shadow: 0 4px 16px rgba(51, 88, 230, 0.15);
     }
 }
 

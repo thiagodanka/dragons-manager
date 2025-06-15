@@ -1,74 +1,16 @@
-.button {
-    margin-top: 0.5rem;
-    padding: 0.8rem 0;
-    color: #fff;
-    border: none;
+.input {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    // border: 1px solid var(--card-border);
+    color: var(--text-color-primary);
     border-radius: 6px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-
-    // Tamanho de fonte padrão (md)
+    background-color: var(--bg-content);
     font-size: 1rem;
-}
+    transition: border 0.2s;
+    box-shadow: rgba(51, 88, 230, 0.15) 0px 8px 24px;
 
-// Variantes de tamanho
-.size-xs {
-    font-size: 0.75rem;
-    padding: 0.4rem 0.8rem;
-}
-
-.size-sm {
-    font-size: 0.875rem;
-}
-
-.size-md {
-    font-size: 1rem;
-}
-
-.size-lg {
-    font-size: 1.125rem;
-}
-
-.size-xl {
-    font-size: 1.25rem;
-}
-
-// Variantes de cor
-.primary {
-    background: linear-gradient(90deg, #4f8cff 0%, #3358e6 100%);
-    box-shadow: 0 2px 8px rgba(79, 140, 255, 0.15);
-
-    &:hover {
-        box-shadow: 0 4px 16px rgba(51, 88, 230, 0.25);
-        filter: brightness(1.1);
-        color: #e6f0ff;
-    }
-}
-
-.secondary {
-    background: linear-gradient(90deg, #e64833 0%, #f11a1a 100%);
-    box-shadow: 0 2px 8px rgba(230, 93, 51, 0.103);
-
-    &:hover {
-        box-shadow: 0 4px 16px rgba(230, 93, 51, 0.25);
-        filter: brightness(1.1);
-        color: #e6f0ff;
-    }
-}
-
-.neutral {
-    background: linear-gradient(90deg, #757575 0%, #555555 100%);
-    box-shadow: 0 2px 8px rgba(155, 155, 155, 0.096);
-
-    &:hover {
-        box-shadow: 0 4px 16px rgba(155, 155, 155, 0.25);
-        filter: brightness(1.1);
-        color: #e6f0ff;
+    &:focus {
+        border: 1px solid #4f8cff;
+        outline: none;
     }
 }

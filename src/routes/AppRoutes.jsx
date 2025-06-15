@@ -19,6 +19,7 @@ export default function AppRoutes() {
                 <Route path="/dragons/:id" element={<DragonDetails />} />
                 <Route path="/dragons" element={<DragonList />} />
                 <Route path="/dragons/create" element={<CreateDragon />} />
+                <Route path="*" element={<Navigate to="/login" replace />} />
             </Route>
 
             {/* Rota fallback */}

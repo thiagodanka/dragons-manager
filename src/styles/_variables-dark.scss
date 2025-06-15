@@ -1,4 +1,11 @@
-$background-color: #1a1a1a !default;
-$background-secondary-color: #2a2a2a !default;
-$background-tertiary-color: #454545 !default;
-$text-color: #eeeeee !default;
+body.theme-dark {
+    --body-bg: #1A1A1A;
+    --text-color-primary: #f1f1f1;
+    --text-color-secondary: #b0b0b0;
+    --bg-content: #424242;
+    --bg-header: #252424;
+    --card-bg: #2a2a2a;
+    --button-primary: linear-gradient(45deg, #4193f7, #1b60ce);
+    --button-secondary: linear-gradient(45deg, #ef4444, #f87171);
+    --button-neutral: linear-gradient(45deg, #9ca3af, #6b7280);
+}

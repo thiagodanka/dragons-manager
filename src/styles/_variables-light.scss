@@ -1,4 +1,12 @@
-$background-color: #f0f0f0 !default;
-$background-secondary-color: #e0e0e0 !default;
-$background-tertiary-color: #cccccc !default;
-$text-color: #333333 !default;
+body.theme-light {
+  --body-bg: #ecf0f1;
+  --text-color-primary: #2c3e50;
+  --text-color-secondary: #404c4d;
+  --bg-content: #ffffff;
+  --bg-header: #f8f9fa;
+  --card-bg: #ffffff;
+  --card-border: #757575;
+  --button-primary: linear-gradient(45deg, #3b82f6, #1d4ed8);
+  --button-secondary: linear-gradient(45deg, #ef4444, #b91c1c);
+  --button-neutral: linear-gradient(45deg, #6b7280, #4b5563);
+}

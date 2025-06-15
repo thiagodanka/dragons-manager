@@ -4,10 +4,9 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 1.5rem;
 
     .item {
-        background-color: #2a2a2a;
+        background-color: var(--card-bg);
         width: 100%;
         padding: 1rem;
         border-radius: 1rem;
@@ -37,11 +36,14 @@
         h5 {
             margin: 0;
             font-size: 0.9rem;
+            color: var(--text-color-primary);
+
         }
 
         p {
             margin: 0;
             font-size: 0.95rem;
+            color: var(--text-color-secondary);
         }
     }
 }

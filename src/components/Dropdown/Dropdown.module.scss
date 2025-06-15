@@ -7,9 +7,9 @@
     position: absolute;
     right: 0;
     top: 60px;
-    background: white;
+    background: var(--body-bg);
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     width: 280px;
     overflow: hidden;
     z-index: 1000;
