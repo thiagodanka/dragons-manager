@@ -1,6 +1,6 @@
 import React from "react";
 import { useContext } from "react";
-import { ThemeContext } from "@contexts/themeContext";
+import { ThemeContext } from "@contexts/ThemeContext";
 import { FaSun, FaMoon } from "react-icons/fa";
 import styles from "./SwitchButton.module.scss";
 
