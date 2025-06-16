@@ -6,6 +6,7 @@ import CreateDragon from '@pages/CreateDragon/CreateDragon';
 import DragonDetails from '@pages/DragonDetails/DragonDetails';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
+import DragonUpdate from '@pages/DragonUpdate/DragonUpdate';
 
 export default function AppRoutes() {
     return (
@@ -16,7 +17,8 @@ export default function AppRoutes() {
 
             {/* Rotas protegidas*/}
             <Route element={<PrivateRoute />}>
-                <Route path="/dragons/:id" element={<DragonDetails />} />
+                <Route path="/dragons/details/:id" element={<DragonDetails />} />
+                <Route path="/dragons/update/:id" element={<DragonUpdate />} />
                 <Route path="/dragons" element={<DragonList />} />
                 <Route path="/dragons/create" element={<CreateDragon />} />
                 <Route path="*" element={<Navigate to="/login" replace />} />

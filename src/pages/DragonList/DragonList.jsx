@@ -7,12 +7,16 @@ import { useToast } from "@contexts/ToastContext";
 import Button from "@components/Button/Button";
 import { FaPlus } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
+import { Search } from "@components/Search/Search";
+import styles from "./DragonList.module.scss";
+import LoadingOverlay from "@components/LoadingOverlay/LoadingOverlay";
 
 const DragonList = () => {
     const [dragons, setDragons] = useState([]);
     const [loading, setLoading] = useState(true);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedDragon, setSelectedDragon] = useState(null);
+    const [filteredDragons, setFilteredDragons] = useState(dragons);
 
     const { addToast } = useToast();
 
@@ -65,28 +69,29 @@ const DragonList = () => {
         <AppLayout
             pageTitle="Lista de Dragões"
             action={
-                <Button
-                    icon={<FaPlus />}
-                    text="Criar Dragão"
-                    variant="primary"
-                    fontSize="sm"
-                    onClick={handleCreateDragon}
-                />
+                <div className={styles.action}>
+                    <Search
+                        data={dragons}
+                        onSearch={setFilteredDragons}
+                    />
+                    <Button
+                        icon={<FaPlus />}
+                        text="Criar Dragão"
+                        variant="primary"
+                        fontSize="sm"
+                        onClick={handleCreateDragon}
+                    />
+                </div>
             }
         >
-            {loading ? (
-                <div>Carregando...</div>
-            ) : (
-                <>
-                    <List dragons={dragons} onDelete={handleDeleteRequest} />
-                    <ConfirmDeleteModal
-                        isOpen={isModalOpen}
-                        onClose={() => setIsModalOpen(false)}
-                        onConfirm={confirmDelete}
-                        message={`Deseja realmente excluir "${selectedDragon?.name}"?`}
-                    />
-                </>
-            )}
+            <List dragons={filteredDragons} onDelete={handleDeleteRequest} />
+            <ConfirmDeleteModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                onConfirm={confirmDelete}
+                message={`Deseja realmente excluir "${selectedDragon?.name}"?`}
+            />
+            <LoadingOverlay isLoading={loading} />
         </AppLayout>
     );
 };

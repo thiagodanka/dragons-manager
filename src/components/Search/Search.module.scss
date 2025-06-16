@@ -1,0 +1,24 @@
+.searchContainer {
+    width: 100%;
+    max-width: 400px;
+}
+
+.searchInput {
+    width: 100%;
+    height: 2.4rem;
+    color: var(--text-color-primary);
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    font-size: 0.875rem;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+    margin-top: 0.5rem;
+
+    box-shadow: rgba(51, 88, 230, 0.15) 0px 8px 24px;
+
+    &:focus {
+        border: 1px solid #4f8cff;
+        outline: none;
+    }
+}

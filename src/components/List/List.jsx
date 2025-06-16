@@ -1,10 +1,11 @@
 import Button from '@components/Button/Button';
 import styles from './List.module.scss';
 import { useState } from 'react';
-import { FaPenToSquare, FaRegTrashCan } from "react-icons/fa6";
+import { FaPenToSquare, FaRegTrashCan, FaRegRectangleList } from "react-icons/fa6";
 import Egg from '@assets/images/egg.png';
 import { formatDate } from '@utils/formatDate';
 import { useNavigate } from 'react-router-dom';
+import LoadingOverlay from '@components/LoadingOverlay/LoadingOverlay';
 
 const List = ({ dragons, onDelete }) => {
 
@@ -12,8 +13,12 @@ const List = ({ dragons, onDelete }) => {
 
     const [loading, setLoading] = useState(false);
 
-    const handleEdit = (dragonId) => {
-        navigate(`/dragons/${dragonId}`);
+    const handleUpdate = (dragonId) => {
+        navigate(`/dragons/update/${dragonId}`);
+    };
+
+    const handleDetails = (dragonId) => {
+        navigate(`/dragons/details/${dragonId}`);
     };
 
     const getImageSource = (imageUrl) => {
@@ -62,16 +67,25 @@ const List = ({ dragons, onDelete }) => {
                         <Button
                             loading={loading}
                             disabled={loading}
-                            text="Editar"
-                            fontSize='sm'
-                            onClick={() => handleEdit(dragon.id)}
+                            text="Detalhes"
+                            fontSize='xs'
+                            onClick={() => handleDetails(dragon.id)}
+                            variant='neutral'
+                            icon={<FaRegRectangleList />}
+                        />
+                        <Button
+                            loading={loading}
+                            disabled={loading}
+                            text="Alterar"
+                            fontSize='xs'
+                            onClick={() => handleUpdate(dragon.id)}
                             icon={<FaPenToSquare />}
                         />
                         <Button
                             loading={loading}
                             disabled={loading}
                             text="Excluir"
-                            fontSize='sm'
+                            fontSize='xs'
                             onClick={() => onDelete(dragon)}
                             variant='secondary'
                             icon={<FaRegTrashCan />}
@@ -79,6 +93,7 @@ const List = ({ dragons, onDelete }) => {
                     </div>
                 </div>
             ))}
+            <LoadingOverlay isLoading={loading} />
         </div>
     );
 };

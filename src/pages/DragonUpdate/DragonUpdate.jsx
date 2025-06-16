@@ -1,10 +1,10 @@
 import Button from '@components/Button/Button';
 import { GenericForm } from '@components/GenericForm/GenericForm';
 import AppLayout from '@layout/AppLayout/AppLayout';
-import { FaArrowRight } from 'react-icons/fa6';
+import { FaArrowRight } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
 
-function CreateDragon() {
+function DragonUpdate() {
 
     const navigate = useNavigate();
 
@@ -13,7 +13,7 @@ function CreateDragon() {
     }
 
     return (
-        <AppLayout pageTitle="Criação de Dragão"
+        <AppLayout pageTitle="Alterar detalhes do Dragão"
             action={
                 <Button
                     icon={<FaArrowRight />}
@@ -24,8 +24,8 @@ function CreateDragon() {
                 />
             }
         >
-            <GenericForm mode="create" />
+            <GenericForm mode="update" />
         </AppLayout>
     )
 }
-export default CreateDragon;
+export default DragonUpdate;

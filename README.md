@@ -40,55 +40,111 @@ Uma aplicação React para gerenciamento de dragões via API externa, com sistem
 ## 🗂️ Estrutura de Pastas
 
 ```plaintext
-src/
-    ├── App.jsx
-    ├── main.jsx
-    │
-    ├── assets/
-    │     └── images/
-    │           
-    ├── components/
-    │     ├── Button/
-    |     |    └──
-    │     ├── DragonCard/
-    │     └── Header/
-    │
-    ├── contexts/
-    │
-    ├── pages/
-    │     ├── CreateDragon/
-    │     ├── DragonDetails/
-    │     ├── DragonList/
-    │     │     ├── DragonList.jsx
-    │     │     └── DragonList.module.scss
-    │     └── Login/
-    │           ├── Login.jsx
-    │           └── Login.module.scss
-    │
-    ├── routes/
-    │     ├── AppRoutes.jsx
-    │     ├── PrivateRoute.jsx
-    │     └── PublicRoute.jsx
-    │
-    ├── services/
-    │     ├── Api.js
-    │     ├── AuthService.js
-    │     └── DragonService.js
-    │
-    ├── styles/
-    │     ├── _mixins.scss
-    │     ├── _variables.scss
-    │     └── global.scss
-    │
-    └── utils/
-          └── cookieUtils.js
+📦 src  
+┣━ 📜 App.jsx  
+┣━ 📂 assets  
+┃     ┗━ 📂 images  
+┣━ 📂 components  
+┃     ┣━ 📂 Button  
+┃     ┃     ┣━ 📜 Button.jsx  
+┃     ┃     ┗━ 📜 Button.module.scss  
+┃     ┃ 
+┃     ┣━ 📂 ConfirmDeleteModal  
+┃     ┃     ┣━ 📜 ConfirmDeleteModal.jsx  
+┃     ┃     ┗━ 📜 ConfirmDeleteModal.module.scss  
+┃     ┃ 
+┃     ┣━ 📂 DragonCard  
+┃     ┃     ┣━ 📜 DragonCard.jsx  
+┃     ┃     ┗━ 📜 DragonCard.module.scss  
+┃     ┃ 
+┃     ┣━ 📂 Dropdown  
+┃     ┃     ┣━ 📜 Dropdown.jsx  
+┃     ┃     ┗━ 📜 Dropdown.module.scss  
+┃     ┃ 
+┃     ┣━ 📂 GenericForm  
+┃     ┃     ┣━ 📜 GenericForm.jsx  
+┃     ┃     ┗━ 📜 GenericForm.module.scss  
+┃     ┃ 
+┃     ┣━ 📂 Input  
+┃     ┃     ┣━ 📜 Input.jsx  
+┃     ┃     ┗━ 📜 Input.module.scss  
+┃     ┃ 
+┃     ┣━ 📂 List  
+┃     ┃     ┣━ 📜 List.jsx  
+┃     ┃     ┗━ 📜 List.module.scss  
+┃     ┃ 
+┃     ┣━ 📂 LoadingOverlay  
+┃     ┃     ┣━ 📜 LoadingOverlay.jsx  
+┃     ┃     ┗━ 📜 LoadingOverlay.module.scss  
+┃     ┃ 
+┃     ┣━ 📂 Search  
+┃     ┃     ┣━ 📜 Search.jsx  
+┃     ┃     ┗━ 📜 Search.module.scss  
+┃     ┃ 
+┃     ┣━ 📂 SwitchButton  
+┃     ┃     ┣━ 📜 SwitchButton.jsx  
+┃     ┃     ┗━ 📜 SwitchButton.module.scss  
+┃     ┃ 
+┃     ┗━ 📂 Toast  
+┃     ┃     ┣━ 📜 Toast.jsx  
+┃     ┃     ┗━ 📜 Toast.module.scss
+┣━ 📂 contexts  
+┃     ┣━ 📜 AuthContext.jsx  
+┃     ┣━ 📜 ThemeContext.jsx  
+┃     ┗━ 📜 ToastContext.jsx
+┣━ 📂 layout  
+┃     ┣━ 📂 AppLayout  
+┃     ┃     ┣━ 📜 AppLayout.jsx  
+┃     ┃     ┗━ 📜 AppLayout.module.scss  
+┃     ┃ 
+┃     ┗━ 📂 Header  
+┃           ┣━ 📜 Header.jsx  
+┃           ┗━ 📜 Header.module.scss  
+┣━ 📜 main.jsx  
+┣━ 📂 pages  
+┃     ┣━ 📂 CreateDragon  
+┃     ┃     ┗━ 📜 CreateDragon.jsx  
+┃     ┃ 
+┃     ┣━ 📂 DragonDetails  
+┃     ┃     ┣━ 📜 DragonDetails.jsx  
+┃     ┃     ┗━ 📜 DragonDetails.module.scss  
+┃     ┃ 
+┃     ┣━ 📂 DragonList  
+┃     ┃     ┣━ 📜 DragonList.jsx  
+┃     ┃     ┗━ 📜 DragonList.module.scss  
+┃     ┃ 
+┃     ┣━ 📂 DragonUpdate  
+┃     ┃     ┗━ 📜 DragonUpdate.jsx  
+┃     ┃ 
+┃     ┗━ 📂 Login  
+┃           ┣━ 📜 Login.jsx  
+┃           ┗━ 📜 Login.module.scss  
+┣━ 📂 routes  
+┃     ┣━ 📜 AppRoutes.jsx  
+┃     ┣━ 📜 PrivateRoute.jsx  
+┃     ┗━ 📜 PublicRoute.jsx  
+┣━ 📂 services  
+┃     ┣━ 📜 Api.js  
+┃     ┣━ 📜 AuthService.js  
+┃     ┗━ 📜 DragonService.js  
+┣━ 📂 styles  
+┃     ┣━ 📜 _variables-dark.scss  
+┃     ┣━ 📜 _variables-light.scss  
+┃     ┗━ 📜 global.scss  
+┗━ 📂 utils  
+      ┣━ 📜 cookieUtils.js  
+      ┣━ 📜 dragons.json  
+      ┗━ 📜 formatDate.js  
+
+
 ```
+
 ---
 
 ## 🌐 API de Referência
 
 **Base URL:**  
-`http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragon`
+`http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1`
 
 | Método | Endpoint         | Descrição                |
 |--------|------------------|-------------------------|
@@ -104,7 +160,9 @@ src/
 
 O sistema usa um token `JWT` simulado armazenado em cookies seguros:
 
-- Credenciais pré-definidas no .env
+- **Credenciais pré-definidas no `.env`**
+  - Usuário: `userExample` v
+  - Senha: `passExample`
 - Token com expiração de 1 hora
 - Proteção de rotas via contexto React
 - Dados do usuário codificados no token
@@ -119,12 +177,12 @@ O sistema usa um token `JWT` simulado armazenado em cookies seguros:
 ---
 
 ## 🔧 Configuração
-Crie um arquivo `.env` na raiz do projeto com:
-```plaintext
-VITE_API_URL=http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragon
-VITE_USER=userExemple
-VITE_PASSWORD=passExemple
+Crie um arquivo `.env` na raiz do projeto baseado no `.env.example`:
+```bash
+cp .env.example .env
 ```
+Edite o arquivo `.env` se necessário.
+
 ---
 
 ## ⚡ Instalação e Uso
@@ -141,3 +199,4 @@ npm run dev
 ## 📄 Licença
 
 Projeto desenvolvido exclusivamente para fins de avaliação técnica.
+

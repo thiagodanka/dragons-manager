@@ -7,6 +7,7 @@ import Input from '@components/Input/Input';
 import { currentDate, formatDate } from '@utils/formatDate';
 import dragons from '@utils/dragons.json';
 import { useToast } from '@contexts/ToastContext';
+import LoadingOverlay from '@components/LoadingOverlay/LoadingOverlay';
 
 export const GenericForm = ({ mode = 'create' }) => {
 
@@ -22,7 +23,7 @@ export const GenericForm = ({ mode = 'create' }) => {
     });
 
     useEffect(() => {
-        if (mode === 'edit' && id) {
+        if (mode === 'update' || 'details' && id) {
             setLoading(true);
             DragonService.getById(id)
                 .then(response => {
@@ -70,7 +71,7 @@ export const GenericForm = ({ mode = 'create' }) => {
             if (mode === 'create') {
                 addToast("error", `Erro ao criar dragão ${formData.name}.`);
             } else {
-                addToast("error", `Erro ao editar dragão ${formData.name}.`);
+                addToast("error", `Erro ao alterar detalhes do dragão ${formData.name}.`);
             }
             console.error('Error:', error);
         } finally {
@@ -80,7 +81,7 @@ export const GenericForm = ({ mode = 'create' }) => {
 
     return (
         <div className={`${styles.formContainer} ${styles[mode]}`}>
-            <h2>{mode === 'create' ? 'Cadastrar Novo Dragão' : 'Editar Dragão'}</h2>
+            <h2>{mode === 'details' ? 'Detalhes do dragão' : mode === 'create' ? 'Cadastrar Novo Dragão' : 'Alterar detalhes do Dragão'}</h2>
 
             <form onSubmit={handleSubmit} className={styles.dragonForm}>
                 <div className={styles.formGroup}>
@@ -89,7 +90,7 @@ export const GenericForm = ({ mode = 'create' }) => {
                         identifier="name"
                         value={formData.name || ''}
                         autoComplete="off"
-                        disabled={loading}
+                        disabled={loading || mode == 'details'}
                         required
                         onChange={handleChange}
                         type="text"
@@ -103,7 +104,7 @@ export const GenericForm = ({ mode = 'create' }) => {
                         identifier="type"
                         value={formData.type || ''}
                         autoComplete="off"
-                        disabled={loading}
+                        disabled={loading || mode == 'details'}
                         required
                         onChange={handleChange}
                         type="text"
@@ -119,14 +120,14 @@ export const GenericForm = ({ mode = 'create' }) => {
                         name="histories"
                         id="histories"
                         value={formData.histories || ''}
-                        disabled={loading}
+                        disabled={loading || mode == 'details'}
                         onChange={handleChange}
                         maxLength={500}
                         placeholder="Conte a história do dragão..."
                     />
                 </div>
 
-                {mode === 'edit' && (
+                {mode === 'update' && (
                     <div className={styles.formGroup}>
                         <label>Data de Criação:</label>
                         <Input
@@ -139,8 +140,7 @@ export const GenericForm = ({ mode = 'create' }) => {
                     </div>
                 )}
 
-
-                <div className={styles.formActions}>
+                {mode != 'details' && <div className={styles.formActions}>
                     <Button
                         type="button"
                         disabled={loading}
@@ -158,9 +158,10 @@ export const GenericForm = ({ mode = 'create' }) => {
                         loadingText="Salvando..."
                         fontSize="sm"
                     />
-
                 </div>
-            </form>
-        </div>
+                }
+            </form >
+            <LoadingOverlay isLoading={loading} />
+        </div >
     );
 };

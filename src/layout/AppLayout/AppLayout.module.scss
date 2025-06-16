@@ -19,7 +19,7 @@
       margin-top: 0.5rem;
 
       button {
-        width: auto; // padrão: largura automática (botão compacto)
+        width: auto;
       }
 
       @media (max-width: 600px) {
@@ -27,31 +27,15 @@
         gap: 1rem;
 
         button {
-          width: 100%; // em telas pequenas: ocupa 100%
+          width: 100%;
         }
       }
     }
 
-    // .content {
-    //   background-color: var(--bg-header);
-    //   color: #fafafa;
-    //   border-radius: 1rem;
-    //   width: 100%;
-    //   overflow-y: auto;
-    //   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    //   box-sizing: border-box;
-    //   height: calc(100vh - 10.5rem);
-
-    //   min-height: 0;
-
-    //   &:last-child {
-    //     margin-bottom: 1rem;
-    //   }
-    // }
-
     .content {
       display: grid;
       justify-items: center;
+      align-items: flex-start;
       background-color: var(--bg-header);
       padding: 1.5rem;
       color: #fafafa;
@@ -68,5 +52,11 @@
       }
     }
 
+  }
+}
+
+@media (max-width: 600px) {
+  .content {
+    height: calc(100vh - 11.5rem) !important;
   }
 }

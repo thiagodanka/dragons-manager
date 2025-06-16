@@ -7,7 +7,7 @@ const Button = ({
     fontSize = "md",
     variant = "primary",
     loadingText = "Carregando",
-    type = "",
+    type = "button",
     disabled = false,
     ...rest
 }) => {
