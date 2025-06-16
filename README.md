@@ -45,6 +45,23 @@ Senha: passExample
 
 - CSS puro via SCSS (Sass)  
   <sub><i>Sem bibliotecas de UI externas, apenas estilização customizada</i></sub>
+  
+---
+
+## ⚙️ Pré-requisitos
+- Node.js (versão 16 ou superior)
+- npm ou yarn
+- Git
+
+---
+
+## 🔧 Configuração
+Crie um arquivo `.env` na raiz do projeto baseado no `.env.example`:
+```bash
+cp .env.example .env
+```
+Edite o arquivo `.env` se necessário.
+
 ---
 
 ## 🗂️ Estrutura de Pastas
@@ -176,22 +193,6 @@ O sistema usa um token `JWT` simulado armazenado em cookies seguros:
 - Token com expiração de 1 hora
 - Proteção de rotas via contexto React
 - Dados do usuário codificados no token
-
----
-
-## ⚙️ Pré-requisitos
-- Node.js (versão 16 ou superior)
-- npm ou yarn
-- Git
-
----
-
-## 🔧 Configuração
-Crie um arquivo `.env` na raiz do projeto baseado no `.env.example`:
-```bash
-cp .env.example .env
-```
-Edite o arquivo `.env` se necessário.
 
 ---
 
