@@ -10,9 +10,19 @@ Uma aplicação React para gerenciamento de dragões via API externa, com sistem
 
 ## 🖼️ Demonstração
 
-| Login  
-|-------
-| <img src="./src/assets/images/screenshot-login.png" width="300">
+| Login | List |
+|-------|------|
+| <img src="./src/assets/images/screenshot-login.png" width="300">| <img src="./src/assets/images/screenshot-list.png" width="300">|
+
+Acesse a demo online:  
+👉 [https://www.dragons-manager.dankacode.com.br](https://www.dragons-manager.dankacode.com.br)
+
+Credenciais de Teste
+
+```plaintext
+Usuário: userExample
+Senha: passExample
+```
 
 ---
 
