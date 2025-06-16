@@ -14,6 +14,8 @@ const Header = () => {
         setIsOpen(!isOpen);
     }
 
+    const closeDropdown = () => setIsOpen(false);
+
     const token = AuthService.getToken();
     const tokenData = JSON.parse(atob(token));
 
@@ -51,9 +53,11 @@ const Header = () => {
                 <SwitchButton />
                 <Dropdown
                     isOpen={isOpen}
+                    closeDropdown={closeDropdown}
                     menu={menu}
                 >
                     <button
+                        type="button"
                         className={styles.avatarButton}
                         onClick={handleOpen}
                         aria-label="Menu do usuário"
