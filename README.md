@@ -188,7 +188,7 @@ Edite o arquivo `.env` se necessário.
 O sistema usa um token `JWT` simulado armazenado em cookies seguros:
 
 - **Credenciais pré-definidas no `.env`**
-  - Usuário: `userExample` v
+  - Usuário: `userExample`
   - Senha: `passExample`
 - Token com expiração de 1 hora
 - Proteção de rotas via contexto React
