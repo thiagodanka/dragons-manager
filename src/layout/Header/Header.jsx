@@ -19,11 +19,12 @@ const Header = () => {
 
     const menu = (
         <>
-            <div className={styles.userInfo}>                <img
-                src={tokenData.image}
-                alt={`Avatar de ${tokenData.userName}`}
-                className={styles.avatarLarge}
-            />
+            <div className={styles.userInfo}>
+                <img
+                    src={tokenData.image}
+                    alt={`Avatar de ${tokenData.userName}`}
+                    className={styles.avatarLarge}
+                />
                 <div className={styles.userDetails}>
                     <p className={styles.userName}>{tokenData.userName}</p>
                     <p className={styles.userEmail}>{tokenData.email}</p>

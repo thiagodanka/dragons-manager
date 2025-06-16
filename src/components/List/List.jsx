@@ -1,7 +1,7 @@
 import Button from '@components/Button/Button';
 import styles from './List.module.scss';
 import { useState } from 'react';
-import { FaPenToSquare, FaRegTrashCan, FaRegRectangleList } from "react-icons/fa6";
+import { FaPenToSquare, FaRegTrashCan, FaFileLines } from "react-icons/fa6";
 import Egg from '@assets/images/egg.png';
 import { formatDate } from '@utils/formatDate';
 import { useNavigate } from 'react-router-dom';
@@ -71,7 +71,7 @@ const List = ({ dragons, onDelete }) => {
                             fontSize='xs'
                             onClick={() => handleDetails(dragon.id)}
                             variant='neutral'
-                            icon={<FaRegRectangleList />}
+                            icon={<FaFileLines />}
                         />
                         <Button
                             loading={loading}
